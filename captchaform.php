@@ -6,7 +6,7 @@ if (isset($_POST['captcha']))
 		echo 'input correct';
 	}
 	else
-		echo 'captcha:'.$_SESSION['captcha'].'your input:'.$_POST['captcha'];
+		echo '<p>captcha:'.$_SESSION['captcha'].'</p><p>your input:'.$_POST['captcha'].'</p>';
 }
 ?>
 
