@@ -15,13 +15,28 @@ if (isset($_POST['captcha']))
 <head>
 	<meta charset='utf-8'>
 	<title>captcha</title>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#refresh').click(function(){
+				$('#captcha').attr('src','captcha.php?r='+Math.random());
+				return false;	
+			});	
+		});
+	</script>
 </head>
 <body>
+
 	<form method='post' action='./captchaform.php'>
-		<lable>captcha</lable>
-		<img src="./captcha.php?r=<?php echo mt_rand();?>" />
-		<lable>input</lable>
-		<input type="text" name="captcha" />
+		<p>
+			<lable>Captcha:</lable>
+			<img id='captcha' src="./captcha.php?r=<?php echo mt_rand();?>" />
+			<a id="refresh" href=''>Refresh</a>
+		</p>
+		<p>
+			<lable>Input:</lable>
+			<input type="text" name="captcha" />
+		</p>
 	</form>
 </body>
 </html>
